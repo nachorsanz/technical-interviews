@@ -5,21 +5,20 @@ on:
     branches: [ "main", "develop" ] 
 
 jobs:
-    unit-tests:
-     name: Unit & UI-Unit-Tests
-     runs-on: ubuntu-latest
-     timeout-minutes: 60
+   unit-tests:
+    name: Unit & UI-Unit-Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
  
-     steps:
-       - uses: actions/checkout@v3
-       - uses: actions/setup-node@v3
-         with:
-           node-version: 16
-           cache: 'npm'
-       - run: npm install --frozen-lockfile
-       
-       - name: UI-Unit Tests (using React-Testing Lib & Storybook)
-         run: npm run test:ui-jest 
+    steps:
+     - uses: actions/checkout@v3
+     - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+     - run: npm install --frozen-lockfile
+     - name: UI-Unit Tests (using React-Testing Lib & Storybook)
+     - run: npm run test:ui-jest 
   
    deploy:
     name: 'Deploy'
